@@ -8,24 +8,29 @@ class TestProvider extends Component{
    	//这里由于provider是自己写的，所以tontext参数需要传过来
     super(props);
     this.state = {
-      value:{}
+      value:""
      };
     }
 
    componentDidMount(){
+   	const name = this.props.name || "wahaha";
+   	this.setState({
+   		value:name
+   	})
    }
 
    render(){
+   	  const name = this.state.value;
    	  return (
           <div>
-             this is TestProvider  for test .
+             welcome to Beijing,{name} .
           </div>
          )
    }
 
 }
 
-//字面意思： 把state递给props,这里的state是store.getState() 
+//字面意思： 把state递给props,这里的state是store.getState()
 function mapStateToProps(state) {
   return state;
 }
@@ -33,7 +38,7 @@ function mapStateToProps(state) {
 //字面意思： 把dispatch递给props
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,getState
+    dispatch
   };
 }
 
